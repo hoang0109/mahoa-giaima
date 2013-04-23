@@ -1,0 +1,4 @@
+c:\users\hoang\documents\visual studio 2012\Projects\WebHoc\WebHoc\bin\WebHoc.dll
+c:\users\hoang\documents\visual studio 2012\Projects\WebHoc\WebHoc\bin\WebHoc.pdb
+c:\users\hoang\documents\visual studio 2012\Projects\WebHoc\WebHoc\obj\Debug\WebHoc.dll
+c:\users\hoang\documents\visual studio 2012\Projects\WebHoc\WebHoc\obj\Debug\WebHoc.pdb
