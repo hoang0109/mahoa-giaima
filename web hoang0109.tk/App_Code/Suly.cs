@@ -133,6 +133,19 @@ public class Suly
     {
         return Convert.ToInt32(x - (x % 1));
     }
+    public static int lamtron(double x, int t)
+    {
+        if (x % 1 >= 0.5)
+        {
+
+            return Convert.ToInt32(x - (x % 1) + 1);
+        }
+        else
+        {
+            return Convert.ToInt32(x - (x % 1));
+        }
+
+    }
     // ham ma hoa rsa tra ve gia tri int
     public static int tinhnhanh_rsa(int x, int a, int n)
     {
@@ -211,24 +224,24 @@ public class Suly
         string html = null;
         try
         {
-       
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            html = html + "<tr>";
-            for (int j = 0; j < matrix.GetLength(1); j++)
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
+                html = html + "<tr>";
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
 
-                html = html + "<td>" + (matrix[i, j]) + "</td>";
+                    html = html + "<td>" + (matrix[i, j]) + "</td>";
 
+                }
+                html = html + "</tr>";
             }
-            html = html + "</tr>";
-        }
         }
         catch
         {
             html = "<tr><td> khong ghi duoc </td></tr>";
         }
-     
+
         return html;
     }
     // Ham matrix->String html
@@ -247,7 +260,7 @@ public class Suly
             html = html + "</tr>";
         }
 
-        
+
         return html;
     }
     // Ham matrix->String html
@@ -274,8 +287,8 @@ public class Suly
 
         return html;
     }
-    
-    
+
+
     // xap xep mang 1 chieu
     /// <summary>
     /// xap xep mang 1 chieu
@@ -443,22 +456,22 @@ public class Suly
     /// <summary>
     /// ma tran ket qua cua phep toan tinh ma tran trung vi
     /// </summary>
-    public static int[,] trungvi_ketqua(int[,] matran,int[,] trungvi,int[,]hieu,int gioihan)
+    public static int[,] trungvi_ketqua(int[,] matran, int[,] trungvi, int[,] hieu, int gioihan)
     {
-        int hang=matran.GetLength(0);
+        int hang = matran.GetLength(0);
         int cot = matran.GetLength(1);
-        int[,] matrix2 =new int[hang,cot];
+        int[,] matrix2 = new int[hang, cot];
         for (int i = 0; i < hang; i++)
         {
             for (int j = 0; j < cot; j++)
             {
-                if (hieu[i,j]<=gioihan)
+                if (hieu[i, j] <= gioihan)
                 {
-                    matrix2[i,j]=matran[i,j];
-                } 
+                    matrix2[i, j] = matran[i, j];
+                }
                 else
                 {
-                    matrix2[i,j]=trungvi[i,j];
+                    matrix2[i, j] = trungvi[i, j];
                 }
             }
 
@@ -622,6 +635,144 @@ public class Suly
 
     }
     /// <summary>
+    /// Tinh trung bình
+    /// </summary> 
+    public static int tinhtrungbinh(int[] ar)
+    {
+        int tt = 0;
+        int tong = 0;
+        for (int i = 0; i < ar.Length; i++)
+        {
+            tong = tong + ar[i];
+        }
+        double trungbinh = (double)tong / 9;
+
+        tt = lamtron(trungbinh, 0);
+        return tt;
+    }
+    /// <summary>
+    /// Tinh trung vị trung bình
+    /// </summary> 
+    public static int[,] tinhtrungvitrungbinh(int[,] matran)
+    {
+        int[,] trungvi = new int[matran.GetLength(0), matran.GetLength(1)];
+        int tt = 0;
+        for (int i = 0; i < matran.GetLength(0); i++)
+        {
+            for (int j = 0; j < matran.GetLength(1); j++)
+            {
+                tt = tinhtrungbinh(matrixtoarray(Matrix_con(matran, i, j, 3)));
+                trungvi[i, j] = tt;
+
+
+
+            }
+        }
+        return trungvi;
+    }
+    ///<summary>
+    ///tìm số phần tử tồn tại trong danh sách
+    ///</summary>
+    public static int timphantutontai(int[] ar, int phantu)
+    {
+        int dem = 0;
+        for (int i = 0; i < ar.Length; i++)
+        {
+            if (phantu == ar[i])
+            {
+                dem++;
+            }
+        }
+        return dem;
+    }
+    ///<summary>
+    ///Xắp xếp danh sách để tính trung vị trung bình theo K
+    ///</summary>
+    public static int[] sapxepdanhsach_tinhtheok(int[] ar, int trungtam)
+    {
+        int[] arr = new int[ar.Length];
+        int vitri = 0;
+        for (int i = 0; i < ar.Max(); i++)
+        {
+            if (i == 0)
+            {
+                int phantutontai = timphantutontai(ar, trungtam - i);
+                for (int j = 0; j < phantutontai; j++)
+                {
+                    arr[vitri] = trungtam - i;
+                    vitri++;
+                }
+            }
+            else
+            {
+                int phantutontai = timphantutontai(ar, trungtam - i);
+                for (int j = 0; j < phantutontai; j++)
+                {
+                    arr[vitri] = trungtam - i;
+                    vitri++;
+                }
+                int phantutontai1 = timphantutontai(ar, trungtam + i);
+                for (int j = 0; j < phantutontai1; j++)
+                {
+                    arr[vitri] = trungtam + i;
+                    vitri++;
+                }
+            }
+
+
+        }
+        return arr;
+    }
+    /// <summary>
+    /// Tinh trung bình theo k
+    /// </summary> 
+    public static int tinhtrungbinh_theok(int[] ar, int k)
+    {
+        int tt = 0;
+        int tong = 0;
+        for (int i = 0; i < k; i++)
+        {
+            tong = tong + ar[i];
+        }
+        double trungbinh = (double)tong / k;
+
+        tt = lamtron(trungbinh, 0);
+        return tt;
+    }
+    public static void inarr(int[] arr)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            Console.Write(arr[i] + "  ");
+        }
+        Console.WriteLine();
+    }
+    /// <summary>
+    /// Tinh trung vị trung bình theo k
+    /// </summary> 
+    public static int[,] tinhtrungvitrungbinh_theoK(int[,] matran, int k)
+    {
+        int[,] trungvi = new int[matran.GetLength(0), matran.GetLength(1)];
+        int tt = 0;
+        int dem = 0;
+        for (int i = 0; i < matran.GetLength(0); i++)
+        {
+            for (int j = 0; j < matran.GetLength(1); j++)
+            {
+                int[,] matrix_conn = Matrix_con(matran, i, j, 3);
+                int[] arr = matrixtoarray(matrix_conn);
+                int[] ar = sapxepdanhsach_tinhtheok(arr, matrix_conn[1, 1]);
+                inarr(ar);
+                tt = tinhtrungbinh_theok(ar, k);
+                trungvi[i, j] = tt;
+
+
+
+            }
+        }
+        return trungvi;
+    }
+    /// <summary>
     /// Tinh trung vi
     /// </summary> 
     public static int[,] tinhtrungvi(int[,] matran)
@@ -646,7 +797,7 @@ public class Suly
     /// </summary> 
     public static int[,] hieu2matran_trungvi(int[,] matrix1, int[,] matrix2)
     {
-        int[,] hieu = new int[matrix1.GetLength(0), matrix1.GetLength(0)];
+        int[,] hieu = new int[matrix1.GetLength(0), matrix1.GetLength(1)];
         for (int i = 0; i < matrix1.GetLength(0); i++)
         {
             for (int j = 0; j < matrix1.GetLength(1); j++)

@@ -21,8 +21,11 @@
         <asp:TextBox ID="txt_cot" runat="server"></asp:TextBox>
         </p>
     <p>Nhập (-) :<asp:TextBox ID="txt_gioihan" runat="server"></asp:TextBox>
+        &nbsp;K:<asp:TextBox ID="txt_k" runat="server"></asp:TextBox>
         </p>
-        <asp:Button ID="bt_tinhtoan" runat="server" Text="Tính toán" OnClick="bt_tinhtoan_Click" />
+        <asp:Button ID="bt_tinhtoan" runat="server" Text="Tính trung vị" OnClick="bt_tinhtoan_Click" />
+        <asp:Button ID="bt_tinhtrungbinh" runat="server" Text="Tính trung bình" OnClick="bt_tinhtrungbinh_Click" />
+        <asp:Button ID="bt_tinhtrungbinh_theok" runat="server" Text="Tính trung bình theo k" OnClick="bt_tinhtrungbinh_theok_Click" />
     </div>
         <div id="showketqua" runat="server">
         </div>

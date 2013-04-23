@@ -9,7 +9,8 @@ public partial class hehe : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["id"] = "admin";       
+        Session["id"] = "admin";
+        Session.Timeout = 9999;
         Response.Redirect("default2.aspx");
 
     }
