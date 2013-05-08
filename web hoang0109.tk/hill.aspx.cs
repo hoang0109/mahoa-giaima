@@ -32,6 +32,8 @@ public partial class hill : System.Web.UI.Page
             ketqua.InnerHtml = ketqua.InnerHtml + "</p>";
             ketqua.InnerHtml = ketqua.InnerHtml + "<p> k^-1= 1/det(a)*k^* </p>";
             ketqua.InnerHtml = ketqua.InnerHtml + "<p> det(k) ="+Suly.det(matrix,hangmatran)+"</p>";
+            int[,] matrixsao = Suly.MatrixSao(matrix,hangmatran);
+            ketqua.InnerHtml = ketqua.InnerHtml +"<Table>"+ Suly.inmatrix(matrixsao)+"</Table>";
           
         }
         catch (Exception)

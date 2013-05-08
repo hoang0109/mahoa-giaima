@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+   
     <title></title>
     <style type="text/css">
 
@@ -48,7 +49,7 @@
             <tr>
                 <td class="auto-style2">P=<asp:TextBox ID="txt_p" runat="server"></asp:TextBox>
                 </td>
-                <td>Bản rõ:<asp:TextBox ID="txt_banro" runat="server"></asp:TextBox>
+                <td>Bản rõ (11111):<asp:TextBox ID="txt_banro" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -99,5 +100,10 @@
         </table>
         <div id="Showketqua" runat="Server"></div>
 </form>
+    <!-- GoStats Simple HTML Based Code -->
+<a target="_blank" title="Đếm Web miễn phí" href="http://gostats.vn"><img alt="Đếm Web miễn phí" 
+src="http://c5.gostats.vn/bin/count/a_1063845/t_3/i_7/counter.png" 
+style="border-width:0" /></a>
+<!-- End GoStats Simple HTML Based Code -->
 </body>
 </html>

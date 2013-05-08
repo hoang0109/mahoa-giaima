@@ -754,7 +754,6 @@ public class Suly
     {
         int[,] trungvi = new int[matran.GetLength(0), matran.GetLength(1)];
         int tt = 0;
-        int dem = 0;
         for (int i = 0; i < matran.GetLength(0); i++)
         {
             for (int j = 0; j < matran.GetLength(1); j++)
@@ -841,5 +840,65 @@ public class Suly
             khoacongkhai_ar_int[i] = Convert.ToInt32(khoacongkhai_ar[i]);
         }
         return khoacongkhai_ar_int;
+    }
+    /// <summary>
+    /// k mu -1 cua hill
+    /// </summary> 
+    public static double[,] kMuTru1(int[,] matrix, int deta)
+    {
+        double[,] ketqua = new double[matrix.GetLength(0), matrix.GetLength(1)];
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                ketqua[i, j] = (double)matrix[i, j] / deta;
+            }
+        }
+        return ketqua;
+    }
+    /// <summary>
+    /// lay ra ma tran con theo hang va cot
+    /// </summary> 
+    public static int[,] MatrixCon(int[,] matrix, int hang, int cot, int k)
+    {
+        int[,] ketqua = new int[k, k];
+        int t = 0; int q = 0;
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            if (i != hang)
+            {
+                q = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+
+                    if (j != cot)
+                    {
+                        ketqua[t, q] = matrix[i, j];
+                        q++;
+                    }
+
+
+                }
+                t++;
+            }
+        }
+        return ketqua;
+    }
+    /// <summary>
+    /// ma tran sao k^-1=1/det(a) * K*
+    /// </summary> 
+    public static int[,] MatrixSao(int[,] matrix, int k)
+    {
+        int[,] ketqua = new int[k, k];
+        int[,] matrixcon = new int[k - 1, k - 1];
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                matrixcon = MatrixCon(matrix, i, j, k - 1);
+                ketqua[i, j] = Convert.ToInt32(Math.Pow((-1), i + j)) * det(matrixcon, k - 1);
+            }
+        }
+        return ketqua;
     }
 }
