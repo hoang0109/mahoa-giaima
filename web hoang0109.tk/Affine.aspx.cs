@@ -11,10 +11,7 @@ namespace WebHoc
         private static string chuoimahoa_ = "abcdefghijklmnopqrstuvwxyz0123456789 ";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Convert.ToString(Session["id"])))
-            {
-                Response.Redirect("login.aspx");
-            }
+
         }
         private List<string> StringToInt(string chuoi_)
         {

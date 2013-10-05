@@ -14,11 +14,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="font-family: 'times New Roman', Times, serif; font-size: 14px; color: #CC6600;">
         
          
     
-        <center><b><i style="font-family: 'times New Roman', Times, serif; font-size: 14px; color: #CC6600;">Mã Hóa Và Giải Mã Theo Phương Pháp Affine</b></i></center></div>
+        <center><b><i>>Mã Hóa Và Giải Mã Theo Phương Pháp Affine</b></i></center></div>
    
     
     <table style="width:100%;">

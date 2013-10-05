@@ -13,10 +13,7 @@ using System.Web.UI.WebControls;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Convert.ToString(Session["id"])))
-            {
-                Response.Redirect("login.aspx");
-            }
+
         }
 
         // tính toán khóa bí mật

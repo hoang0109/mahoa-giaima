@@ -9,18 +9,6 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(Convert.ToString(Session["id"])))
-        {
-            Response.Redirect("login.aspx");
-        }
-        else
-        {
-            if (Convert.ToString(Session["id"]) !="admin")
-            {
-                Response.Redirect("login.aspx");
-            }
-            
 
-        }
     }
 }

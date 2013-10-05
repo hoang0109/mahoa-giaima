@@ -9,10 +9,7 @@ public partial class balo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(Convert.ToString(Session["id"])))
-        {
-            Response.Redirect("login.aspx");
-        }
+ 
     }
     protected void bt_mahoa_Click(object sender, EventArgs e)
     {

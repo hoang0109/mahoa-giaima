@@ -14,6 +14,7 @@
         <a href="Rsa.aspx">Mã hóa sử dụng phương pháp RSA</a><br />
         <a href="Songuyento.aspx">Danh sách các số nguyên tố</a><br />
         <a href="Hill.aspx">Mã hóa sử dụng Hill</a><br />
+        <a href="logicmo.aspx">Logic mờ</a><br />
         <br />
         <br />
         <br />
@@ -24,7 +25,7 @@ src="http://c5.gostats.vn/bin/count/a_1063845/t_3/i_7/counter.png"
 style="border-width:0" /></a>
 <!-- End GoStats Simple HTML Based Code -->
     </div>
-        <asp:Button ID="bt_out" runat="server" OnClick="bt_out_Click" Text="Logout" />
+        <%--<asp:Button ID="bt_out" runat="server" OnClick="bt_out_Click" Text="Logout" />--%>
     </form>
 </body>
 </html>

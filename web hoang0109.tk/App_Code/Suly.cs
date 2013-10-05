@@ -250,11 +250,11 @@ public class Suly
         string html = null;
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            html = html + "<tr>";
+            html = html + "<tr class='tr_345gh'>";
             for (int j = 0; j < matrix.GetLength(1); j++)
             {
 
-                html = html + "<td>" + (matrix[i, j]) + "</td>";
+                html = html + "<td class='td_35345'>" + (matrix[i, j]) + "</td>";
 
             }
             html = html + "</tr>";
@@ -747,6 +747,15 @@ public class Suly
         }
         Console.WriteLine();
     }
+    public static string inarr(string[] arr)
+    {
+        string ketqua = null;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            ketqua = ketqua + arr[i] + " ; ";
+        }
+        return ketqua;
+    }
     /// <summary>
     /// Tinh trung vị trung bình theo k
     /// </summary> 
@@ -901,4 +910,222 @@ public class Suly
         }
         return ketqua;
     }
+    /// <summary>
+    /// Chia String S thanh String nho hon
+    /// </summary>
+    /// <param name="S">String goc</param>
+    /// <param name="x">Moc de cat vd , ; ...</param>
+    /// <returns>tra ve string[] ket qua</returns>
+    public static string[] Split_String(string S, char x)
+    {
+        string[] ketqua = S.Split(x);
+        return ketqua;
+    }
+    /// <summary>
+    /// Tinh Tap Trung
+    /// </summary>
+    /// <param name="S">string[] S</param>
+    /// <returns>Tra ve string[] ket qua</returns>
+    public static string[] TinhTapTrung(string[] S,bool lamtron)
+    {
+        string[] ketqua = new string[S.Length];
+        if (lamtron == true)
+        {
+
+        
+            for (int i = 0; i < S.Length; i++)
+            {
+            
+                ketqua[i] =Math.Round(Math.Pow(Convert.ToDouble(S[i]), 2.0),2).ToString();
+            
+            }
+        }
+        else
+        {
+            
+            for (int i = 0; i < S.Length; i++)
+            {
+            
+                ketqua[i] =Math.Pow(Convert.ToDouble(S[i]), 2.0).ToString();
+            
+            }
+        }
+        
+        return ketqua;
+    }
+    /// <summary>
+    /// Tính co giãn
+    /// </summary>
+    /// <param name="S">mảng S nhập để tính</param>
+    /// <param name="lamtron">true là làm tròn false không</param>
+    /// <returns>Trả về giá trị đã tính dưới dạng string[]</returns>
+    public static string[] TinhCoGian(string[] S, bool lamtron)
+    {
+        string[] ketqua = new string[S.Length];
+
+        if (lamtron == true)
+        {
+
+
+            for (int i = 0; i < S.Length; i++)
+            {
+
+                ketqua[i] = Math.Round(Math.Sqrt(Convert.ToDouble(S[i])), 2).ToString();
+
+            }
+        }
+        else
+        {
+
+            for (int i = 0; i < S.Length; i++)
+            {
+
+                ketqua[i] = Math.Sqrt(Convert.ToDouble(S[i])).ToString();
+
+            }
+        }
+
+        return ketqua;
+    }
+    /// <summary>
+    /// Tinh Nhan Manh
+    /// </summary>
+    /// <param name="S">mảng S nhập để tính</param>
+    /// <param name="lamtron">true là làm tròn false không</param>
+    /// <returns>Trả về giá trị đã tính dưới dạng string[]</returns>
+    public static string[] TinhNhanhManh(string[] S, bool lamtron)
+    {
+        string[] ketqua = new string[S.Length];
+
+        if (lamtron == true)
+        {
+
+
+            for (int i = 0; i < S.Length; i++)
+            {
+                double x =Convert.ToDouble(S[i]);
+                if (0<=x && x<=0.5)
+                {
+                    ketqua[i] = Math.Round(2* Math.Pow(x, 2.0),2).ToString();
+                }
+                if (x>0.5&&x<1)
+                {
+                     ketqua[i] = Math.Round(1-(2* Math.Pow(1-x, 2.0)),2).ToString();
+                }
+                
+
+            }
+        }
+        else
+        {
+
+            for (int i = 0; i < S.Length; i++)
+            {
+
+                double x = Convert.ToDouble(S[i]);
+                if (0 <= x && x <= 0.5)
+                {
+                    ketqua[i] =(2 * Math.Pow(x, 2.0)).ToString();
+                }
+                if (x > 0.5 && x < 1)
+                {
+                    ketqua[i] = (1 - (2 * Math.Pow(1-x, 2.0))).ToString();
+                }
+
+            }
+        }
+
+        return ketqua;
+    }
+    /// <summary>
+    /// Tính Mxy của logic mờ VD tính Mac
+    /// </summary>
+    /// <param name="x">Nhập x</param>
+    /// <param name="y">Nhập y</param>
+    /// <returns>ma trận kết quả</returns>
+    public static string[,] Logicmo_Mxy(string[] x, string[] y)
+    {
+        string[,] ketqua = new string[x.Length,y.Length];
+        
+        for (int i = 0; i < x.Length; i++)
+        {
+            for (int j = 0; j < y.Length; j++)
+            {
+                ketqua[i, j] = Math.Min(Convert.ToDouble(x[i]),Convert.ToDouble(y[j])).ToString();
+            }
+        }
+        return ketqua;
+    }
+    /// <summary>
+    /// Tính B'A'=A'x Mab
+    /// </summary>
+    /// <param name="A">string[] A'</param>
+    /// <param name="AB">string[,] AB</param>
+    /// <returns>retun string[] B'A'</returns>
+    public static string[] logicmo_AB(string[] A,string[,] AB)
+        {
+            string[] ketqua = new string[AB.GetLength(1)];
+            for (int i = 0; i < AB.GetLength(1); i++)
+            {
+                double max = 0;
+                for (int j = 0; j < A.Length; j++)
+                {
+                    double x = Convert.ToDouble(A[j]);
+                    double y = Convert.ToDouble(AB[j, i]);
+                    if (Math.Min(x,y)>max)
+                    {
+                        max = Math.Min(x, y);
+                    }
+                }
+                ketqua[i] = max.ToString();
+            }
+            return ketqua;
+        
+        }
+    /// <summary>
+    /// Logic mờ tính kết quả điều kiện and hoặc or
+    /// </summary>
+    /// <param name="A">mảng 1 </param>
+    /// <param name="B">mảng 1</param>
+    /// <param name="andor">and hoặc or</param>
+    /// <returns>kết quả cuối</returns>
+    public static string[] logicmo_andor(string[] A,string[] B,string andor)
+        {
+            string[] ketqua = new string[A.Length];
+            if (andor=="and")
+            {
+                for (int i = 0; i < A.Length; i++)
+                {
+                    ketqua[i] = Math.Min(Convert.ToDouble(A[i]), Convert.ToDouble(B[i])).ToString();
+                }
+            }
+            if (andor == "or")
+            {
+                for (int i = 0; i < A.Length; i++)
+                {
+                    ketqua[i] = Math.Max(Convert.ToDouble(A[i]), Convert.ToDouble(B[i])).ToString();
+                }
+            }
+            return ketqua;
+        }
+    /// <summary>
+    /// Tính tích cực đại của logic mờ VD tính Mac
+    /// </summary>
+    /// <param name="x">Nhập x</param>
+    /// <param name="y">Nhập y</param>
+    /// <returns>ma trận kết quả</returns>
+    public static string[,] Logicmo_Tichxy(string[] x, string[] y)
+    {
+        string[,] ketqua = new string[x.Length, y.Length];
+
+        for (int i = 0; i < x.Length; i++)
+        {
+            for (int j = 0; j < y.Length; j++)
+            {
+                ketqua[i, j] = (Convert.ToDouble(x[i])*Convert.ToDouble(y[j])).ToString();
+            }
+        }
+        return ketqua;
+    }
+
 }
