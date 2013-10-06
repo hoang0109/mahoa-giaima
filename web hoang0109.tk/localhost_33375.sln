@@ -1,8 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebHoc", "http://localhost:33375", "{4C9C2FF8-E3FA-4154-AD93-01DCDDDF014B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web hoang0109.tk", "http://localhost:33375", "{4C9C2FF8-E3FA-4154-AD93-01DCDDDF014B}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_33375"
@@ -21,8 +25,16 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebHoc", "http://localhost:
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "..\web hoang0109.tk\"
 	EndProjectSection
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist
+		Enlist = Required
+	EndProjectSection
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection

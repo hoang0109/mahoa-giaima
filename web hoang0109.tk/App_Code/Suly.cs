@@ -1122,7 +1122,7 @@ public class Suly
         {
             for (int j = 0; j < y.Length; j++)
             {
-                ketqua[i, j] = (Convert.ToDouble(x[i])*Convert.ToDouble(y[j])).ToString();
+                ketqua[i, j] = Math.Round((Convert.ToDouble(x[i])*Convert.ToDouble(y[j])),2).ToString();
             }
         }
         return ketqua;

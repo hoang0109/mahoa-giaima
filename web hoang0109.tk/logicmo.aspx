@@ -28,7 +28,9 @@
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script type="text/javascript">
-
+        function bt_thucong_Click() {
+            window.location.assign("http://google.com.vn");
+        }
         function selectValue() {
 
             if (document.getElementById("rd_console_1_0").checked == true) {
@@ -185,7 +187,6 @@
              
             <td colspan="2" style="text-align:center" id="td">
                 <asp:Button ID="bt_caculator" runat="server" Text="Tính" Height="43px" Width="104px" OnClick="bt_caculator_Click" />
-                
             </td>
             
 

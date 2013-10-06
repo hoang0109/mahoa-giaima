@@ -16,11 +16,11 @@ public partial class logicmo : System.Web.UI.Page
     protected void bt_caculator_Click(object sender, EventArgs e)
     {
         showketqua.InnerHtml = null;
-        string[] A = Suly.Split_String(txt_a.Text, ';');
-        string[] B = Suly.Split_String(txt_b.Text, ';');
-        string[] C = Suly.Split_String(txt_c.Text, ';');
-        string[] D = Suly.Split_String(txt_console1.Text, ';');
-        string[] F = Suly.Split_String(txt_console2.Text, ';');
+        string[] A = Suly.Split_String(txt_a.Text, ',');
+        string[] B = Suly.Split_String(txt_b.Text, ',');
+        string[] C = Suly.Split_String(txt_c.Text, ',');
+        string[] D = Suly.Split_String(txt_console1.Text, ',');
+        string[] F = Suly.Split_String(txt_console2.Text, ',');
         string[,] M1 = null;
         string[,] M2 = null;
         string[] N1 = null;
@@ -284,4 +284,7 @@ public partial class logicmo : System.Web.UI.Page
         
     }
 
+
+
+   
 }
